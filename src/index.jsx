@@ -44,9 +44,35 @@ const store = createStore(combineReducers({
 const App = (props) => {
   return (
     <div className='app'>
-      <h1>Bonjour la monde!</h1>
+      { props.children }
     </div>
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+class Sidebar extends Component {
+  render () {
+    let props = this.props
+    
+    return (
+      <div className='sidebar'>
+        <h2>All Decks</h2>
+        <ul>
+          {props.decks.map( (deck, i) =>  // we passed a desk prop while rendering
+            <li key={i}>{deck.name}</li> // in React, we need to pass a key to differentiate sibling elements that are practically the same
+          )}
+        </ul>
+        
+        { 
+          // if addingDeck is provided (true), show the input field 
+          props.addingDeck && <input ref='add' />  
+        } 
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(
+  <App>
+    <Sidebar decks={ [ {name: 'Deck 1'} ] } addingDeck={false}/> 
+  </App> 
+,document.getElementById('root'))
