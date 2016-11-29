@@ -1,10 +1,10 @@
 // Libs
 import {createStore, combineReducers} from 'redux'
+import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
 
 // Styles
 require('./styles.scss')
-
-console.log('bonjour! ca va?')
 
 // REDUCER 
 const cards = (state, action) => { // state here is the current value of the cards prop
@@ -40,23 +40,13 @@ const store = createStore(combineReducers({
   cards // thanks to ES6, we can just say it once if both the prop and the value are the same
 })) 
 
-// SUBSCRIBE
-// how do we know state has changed? add a change listener! It will be called any time an action is dispatched
-store.subscribe(() => {
-  console.log(store.getState())
-})
 
-// DISPATCH 
-// send the store an action 
-store.dispatch({
-  type: 'ADD_CARD',
-  data: {
-    front: 'front',
-    back: 'back'
-  }
-})
+const App = (props) => {
+  return (
+    <div className='app'>
+      <h1>Bonjour la monde!</h1>
+    </div>
+  )
+}
 
-store.dispatch({
-  type: 'ADD_CARD',
-  data: {}
-})
+ReactDOM.render(<App />, document.getElementById('root'))
