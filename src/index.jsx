@@ -44,7 +44,7 @@ const store = createStore(combineReducers({
 const App = (props) => {
   return (
     <div className='app'>
-      { props.children }
+      <Sidebar decks={ [ {name: 'Deck 1'} ] } addingDeck={true}/>
     </div>
   )
 }
@@ -71,8 +71,4 @@ class Sidebar extends Component {
   }
 }
 
-ReactDOM.render(
-  <App>
-    <Sidebar decks={ [ {name: 'Deck 1'} ] } addingDeck={false}/> 
-  </App> 
-,document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
