@@ -8,9 +8,11 @@ export default class Sidebar extends Component {
       <div className='sidebar'>
         <h2>All Decks</h2>
         <ul>
-          { decks.map(deck => <li key={deck.name}>{deck.name}</li>) }
+          {decks.map(deck => 
+            <li key={deck.name}>{deck.name}</li>
+          )}
         </ul>
-        { addingDeck && <input ref='add' /> } 
+        {addingDeck && <input ref='add' />} 
       </div>
     )
 
