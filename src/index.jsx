@@ -3,6 +3,12 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import Sidebar from './components/Sidebar'
 import reducer from './reducers'
+import {
+  addDeck,
+  showAddDeck,
+  hideAddDeck
+} from './actions'
+
 require('./styles.scss')
 
 const store = createStore(reducer) 
