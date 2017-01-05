@@ -37,7 +37,7 @@
   "scripts": {
     "build": "watchify src/app.js -o public/bundle.js -t [ babelify --presets [ react es2015 ] ]",
     "server": "cd public; live-server --port=1234 --entry-file=index.html",
-    "start": "webpack-dev-server --port 8080"
+    "start": "webpack-dev-server --port 1234 --inline --hot"
   },
   "keywords": [],
   "author": "Aamnah Akram <aamnah@aamnah.com> (http://aamnah.com)",
